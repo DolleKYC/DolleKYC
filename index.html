@@ -7,7 +7,7 @@
     <!-- Link to Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to your custom CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="p-4 sm:p-6 md:p-8">
     <!-- Main container for the application -->
@@ -26,6 +26,43 @@
                 IMPORTANT INFO
             </button>
         </div>
+
+        <!-- New icon section -->
+        <div class="flex justify-center space-x-4 mb-6">
+            <!-- Contact Admin Icon -->
+            <button id="contactAdminIcon" class="flex flex-col items-center text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2H2L11 11V22L13 20V11L22 2Z"></path>
+                    <path d="M12 12L20 4"></path>
+                    <path d="M4 4L12 12"></path>
+                </svg>
+                <span class="text-xs mt-1">Contact Admin</span>
+            </button>
+
+            <!-- Buyer's Order Proof Icon -->
+            <button id="proofOrderIcon" class="flex flex-col items-center text-gray-400 hover:text-green-400 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                    <path d="M14 2v6h6"></path>
+                    <path d="M16 13H8"></path>
+                    <path d="M16 17H8"></path>
+                    <path d="M10 9H8"></path>
+                </svg>
+                <span class="text-xs mt-1">Buyer's Order Proof</span>
+            </button>
+
+            <!-- Seller's Payment Proof Icon -->
+            <button id="proofPaymentIcon" class="flex flex-col items-center text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17L4 12"></path>
+                    <path d="M18 2h-4a2 2 0 00-2 2v16a2 2 0 002 2h4a2 2 0 002-2V4a2 2 0 00-2-2z"></path>
+                    <path d="M12 12H8"></path>
+                    <path d="M16 12H12"></path>
+                </svg>
+                <span class="text-xs mt-1">Seller's Payment Proof</span>
+            </button>
+        </div>
+        <!-- End of new icon section -->
 
         <!-- Product search input -->
         <div class="mb-4 flex items-center justify-between">
@@ -175,9 +212,36 @@
             </div>
         </div>
 
+        <!-- Contact Admin Modal -->
+        <div id="contactAdminModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50">
+            <div class="bg-gray-800 rounded-lg p-6 max-w-sm w-full relative transform transition-all duration-300 scale-95 opacity-0" id="contactAdminModalContent">
+                <button id="closeContactAdminModal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-3xl font-bold rounded-full p-2 leading-none">&times;</button>
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">Contact Admin</h2>
+                <div class="flex flex-col gap-4">
+                    <button id="chatTelegramAdminBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 8.5l-3.25 2.5-1.75-1.5-3.5 2.5V8.5h8.5z"/>
+                        </svg>
+                        Chat Telegram
+                    </button>
+                    <button id="chatWhatsAppAdminBtn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 8.5l-3.25 2.5-1.75-1.5-3.5 2.5V8.5h8.5z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c-4.557 0-8.25-3.693-8.25-8.25S7.443 3.75 12 3.75s8.25 3.693 8.25 8.25-3.693 8.25-8.25 8.25zM15.5 11.25L10.75 14.5l-2.5-2.25-5.25 3.5V8.25h13z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 7.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 7.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" fill="white"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.5 10.75c-1.637 0-2.963 1.326-2.963 2.963S15.863 16.676 17.5 16.676s2.963-1.326 2.963-2.963-1.326-2.963-2.963-2.963z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.5 10.75c-1.637 0-2.963 1.326-2.963 2.963S15.863 16.676 17.5 16.676s2.963-1.326 2.963-2.963-1.326-2.963-2.963-2.963z" fill="white"/>
+                        </svg>
+                        Chat WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Link to your JavaScript file -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
